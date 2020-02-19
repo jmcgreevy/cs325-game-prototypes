@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Hello! Amaze!</title>
+    <title>Homework 1</title>
     <script src="js/phaser.js"></script>
     <script src="js/main.js"></script>
 
@@ -22,72 +22,102 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Your game title</h2>
+<h2>Sonic Dodger</h2>
 
 <ul>
 <li><strong>Originality:</strong>
-What is original about your game?
+What is original about your game? <br>
+While I took inspiration from "bullet hell" games, I think that a humorous take on Sonic the Hedgehog trying to dodge the ugly CGI 'movie Sonic' is decent enough.
 </li>
 
 <li><strong>Technical Merit:</strong>
-What is interesting about your game technology?
+What is interesting about your game technology? <br> 
+I tried to incorporate a few different code examples I found online, and that ultimately proved too ambitious since after a certain point I wasn't able to get it to work.
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
-What did you learn from this prototype?
-What was the easiest or hardest part of making it?
+What did you learn from this prototype? <br> 
+I learned that I need to start earlier and find more phaser examples online before I accidentally lock myself into something I don't know how to finish.
+What was the easiest or hardest part of making it? <br> 
+I wasn't able to figure out how to get the 'movie sonics' to chase after the player. Most forums base it on the mouse location, and then when I found some code that looked promising - it did not work.
 </li>
 
 <li><strong>Prototype Assets:</strong>
-Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+I slightly editted my sprites from images taken from Google:
 <ul>
-<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
+<li>https://meme.fandom.com/wiki/Sanic</li>
+<li>https://nintendowire.com/news/2019/03/05/full-body-render-of-sonic-character-from-film-revealed/</li>
+<li>https://www.deviantart.com/stydex786/art/Green-Hill-Zone-Sonic-exe-Flashes-of-Souls-775929649</li>
 </ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
-Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+I was not explicitly trying to copy a specific game, but here's a list of all the links my code is based on:
+<ul>
+<li>
+missiles from: 
+https://gamemechanicexplorer.com/#homingmissiles-5
+</li>  
+<li>
+walking and jumping from: 
+https://gamemechanicexplorer.com/#platformer-4
+</li>
+<li>
+missile follow player (although it didn't work): 
+https://www.html5gamedevs.com/topic/16808-missile-follow-player-how-to-get-player-position-inside-missile-object/
+</li>
+<li>
+lives from: 
+https://github.com/photonstorm/phaser-examples/blob/master/examples/games/invaders.js
+</li>
+</ul>
 </li>
 
 <li><strong>High Concept:</strong>
-A one-sentence summary of your game.
+A one-sentence summary of your game.<br>
+    You play as Sonic the hedgehog trying to escape his 'dark past' - the CGI monster that he used to be in the live action movie.
 </li>
 
 <li><strong>Theme:</strong>
-State which of the Storymatic themes you used.
+State which of the Storymatic themes you used.<br>
+    I didn't really have a story.
 </li>
 
 <li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.
+State which input, randomness, genre, and play style you used in this prototype.<br>
+    The plan was to make a bullet hell that was a tongue-in-cheek making fun of Sonic using simple assets.
 </li>
 
 <li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?
+What game mechanic is this prototype evaluating?<br>
+    The goal was to play around with dodging mechanics.
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-What experience do you want players to have when playing your game?
+What experience do you want players to have when playing your game?<br>
+    I want people to have a laugh, its not a very serious concept.
 </li>
 
 <li><strong>Gameplay:</strong>
-A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+The player is able to control Sonic through the arrow keys and you can also click to jump (but its not necessary). The core mechanic is to dodge the 'movie sonic' projectiles, but at the moment they only follow the mouse, so that mechanic isn't properly implemented. I also couldn't get the lives to display properly, so in the future I'll need to fix that. Since the mouse controls the 'movie sonics' it could almost be treated as a two-player game, but that's more of a happy accident than intended.
 </li>
 
 <li><strong>Strategies:</strong>
-What player strategies do you expect will be effective at playing this game?
+What player strategies do you expect will be effective at playing this game?<br>
+    Dodge if you want to survive!
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
-A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
-How will the dramatic tension interact with the gameplay tension?
+This game is way too simplistic to have its own narrative, but I tried to at least have a theme revolving around Sonic. A crudely drawn player that is a joke in its own right, but also the damaging aspect coming from the horrible movie version is funny as well. I also tried to get the floor to look similar to old Sonic games, specifically 'Green Hill,' so if I had more time and assets it could actually shape up to be considered a 'fan game.'
 </li>
 
 <li><strong>Target Audience:</strong>
-A single sentence that describes the demographic you're trying to reach.
+People who live Sonic, or people who like making fun of Sonic.
 </li>
 
 <li><strong>Play Time:</strong>
-How long does your game take to play?
+How long does your game take to play?<br>
+If everything worked, a few minutes. Unfortunately I couldn't get the game over screen to work either, so it lasts forever.
 </li>
 
 </ul>

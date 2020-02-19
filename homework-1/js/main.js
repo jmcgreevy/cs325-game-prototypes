@@ -5,8 +5,8 @@ var GameState = function(game) {
 // Load images and sounds
 GameState.prototype.preload = function() {
     this.game.load.image('player', 'assets/sanic2.png');
-    this.game.load.image('ground', 'assets/ground.png');
-	this.game.load.image('rocket', 'assets/rocket.png');
+    this.game.load.image('ground', 'assets/ground.PNG');
+	this.game.load.image('rocket', 'assets/rocket.PNG');
 };
 
 // Custom game object to track player (didnt work)
