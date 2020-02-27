@@ -7,14 +7,14 @@ GameStates.makeGame = function( game, shared ) {
     var canAmmo;
     var player;
 	
-    var cansGroup;
-    var canArray =[];
-    var canBullets;
-    var canSpeed = 300;
-    var canFireDelay = 100;
-    var lastCanShotAt;
+    var lettersGroup;
+    var letterArray =[];
+    var lettersBullets;
+    var LBspeed = 300;
+    var letterShotDelay = 100;
+    var lastLetterShotAt;
 
-    var maxCans = 150;    
+    var maxLetters = 150;    
 
 	// Variables to allow grandma to pick up nearby cans of cat food
     var vacuumRadius;
@@ -35,8 +35,9 @@ GameStates.makeGame = function( game, shared ) {
 	
     var style;
     var bulletText;
+    //var timer;
+   
 
-	// This spawns cats outside of the screen
     function spawnEnemy(x, y)
     {
         var enemy = enemies.getFirstDead();
@@ -53,53 +54,56 @@ GameStates.makeGame = function( game, shared ) {
         enemy.y = y;
     }
 
-	// This allows the grandma to shoot cans of catfood at the horde of kitties
-    function shootCan()
+    function shootLetter()
     {
-        if(lastCanShotAt === undefined) lastCanShotAt = 0;
-        if(game.time.now - lastCanShotAt < canFireDelay) return;
+        if(lastLetterShotAt === undefined) lastLetterShotAt = 0;
+        if(game.time.now - lastLetterShotAt < letterShotDelay) return;
 
-        lastCanShotAt = game.time.now;
+        lastLetterShotAt = game.time.now;
 
-        var can = canBullets.getFirstDead();
+        var letter = lettersBullets.getFirstDead();
 
-        if(can === null || can === undefined) return;
+        if(letter === null || letter === undefined) return;
 
-        if(canArray.length <= 0) return;
+        if(letterArray.length <= 0) return;
 
-        can.revive();
+        letter.revive();
 
-        can.frame = canArray.pop();
-        can.checkWorldBounds = true;
-        can.outOfBoundsKill = true;
-        can.reset((Math.cos((player.rotation) % (2 *Math.PI)) * 15) + player.x, (Math.sin((player.rotation) % (2 *Math.PI)) * 15) + player.y);
+        letter.frame = letterArray.pop();
+        //letter.frame = game.rnd.integerInRange(0,25);
+        letter.checkWorldBounds = true;
+        letter.outOfBoundsKill = true;
+        letter.reset((Math.cos((player.rotation) % (2 *Math.PI)) * 15) + player.x, (Math.sin((player.rotation) % (2 *Math.PI)) * 15) + player.y);
         
-        can.rotation = player.rotation;
+         
+        letter.rotation = player.rotation;
 
-        can.body.velocity.x = Math.cos(can.rotation) * canSpeed;
-        can.body.velocity.y = Math.sin(can.rotation) * canSpeed;   
+        letter.body.velocity.x = Math.cos(letter.rotation) * LBspeed;
+        letter.body.velocity.y = Math.sin(letter.rotation) * LBspeed;   
+        //knockback();
     }
 
-    function spawnCan(x,y, rotation, speed)
+    function spawnLetter(x,y, rotation, speed)
     {
-        var can = cansGroup.getFirstDead();
-        if(can === null)
+        var letter = lettersGroup.getFirstDead();
+        if(letter=== null)
         {
-            can = game.add.sprite(0,0, 'cans');
-                cansGroup.add(can);
-                can.anchor.setTo(0.5,0.5);
-                game.physics.arcade.enable(can);
-                can.kill();
+            letter = game.add.sprite(0,0, 'letters');
+                lettersGroup.add(letter);
+                letter.anchor.setTo(0.5,0.5);
+                game.physics.arcade.enable(letter);
+                letter.kill();
         }
-        can.revive();
-        can.frame = game.rnd.integerInRange(0,25);
-        can.vacuum = false;
-        can.body.velocity.x =Math.cos(rotation) * speed;
-        can.body.velocity.y = (Math.sin(rotation) * speed);
-        can.checkWorldBounds = true;
-        can.outOfBoundsKill = true;
-        can.x = x;
-        can.y = y;
+        letter.revive();
+        letter.frame = game.rnd.integerInRange(0,25);
+        letter.vacuum = false;
+        letter.body.velocity.x =Math.cos(rotation) * speed;
+        letter.body.velocity.y = (Math.sin(rotation) * speed);
+        //letter.body.drag.setTo(vomitDrag,vomitDrag);
+        letter.checkWorldBounds = true;
+        letter.outOfBoundsKill = true;
+        letter.x = x;
+        letter.y = y;
 
     }
 
@@ -114,8 +118,8 @@ GameStates.makeGame = function( game, shared ) {
         this.health = 1;
         this.turnDirection = 1;
         this.SPEED = 150;
-        this.CANDELAY = 5000;
-        this.LASTCANFIRED;
+        this.LETTERDELAY = 5000;
+        this.LASTLETTERFIRED;
         this.distanceToPlayer = 0;
     }
 
@@ -143,13 +147,14 @@ GameStates.makeGame = function( game, shared ) {
         this.body.velocity.x = Math.cos(this.rotation) * this.SPEED;
         this.body.velocity.y = Math.sin(this.rotation) * this.SPEED;
 
-        if(this.LASTCANFIRED ===undefined)
+        if(this.LASTLETTERFIRED ===undefined)
         {
-            this.LASTCANFIRED = 0;
+            this.LASTLETTERFIRED = 0;
         }
-        if(game.time.now - this.LASTCANFIRED > this.CANDELAY)
+        if(game.time.now - this.LASTLETTERFIRED > this.LETTERDELAY)
         {
-            this.LASTCANFIRED = game.time.now;
+            this.LASTLETTERFIRED = game.time.now;
+            //vomitLetters(this.x, this.y, this.direction);
             
         }
 
@@ -178,9 +183,9 @@ GameStates.makeGame = function( game, shared ) {
         canAmmo = 0;
 
         maxEnemies = 10;
-        maxCans = 150;
+        maxLetters = 150;
         enemies.killAll();
-        cansGroup.killAll();
+        lettersGroup.killAll();
         game.state.start('GameOver', true);
 
     }
@@ -221,37 +226,40 @@ GameStates.makeGame = function( game, shared ) {
             space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
-            cansGroup = game.add.group();
+            lettersGroup = game.add.group();
             for(var i = 0; i < 200; i++)
             {
-                var canS = game.add.sprite(0,0, 'cans');
-                cansGroup.add(canS);
-                canS.anchor.setTo(0.5,0.5);
-                game.physics.arcade.enable(canS);
-                canS.kill();
+                var letterS = game.add.sprite(0,0, 'letters');
+                lettersGroup.add(letterS);
+                letterS.anchor.setTo(0.5,0.5);
+                game.physics.arcade.enable(letterS);
+                letterS.kill();
 
             }
 
 
-            canBullets = game.add.group();
+            lettersBullets = game.add.group();
             for(var i = 0; i < 200; i++)
             {
-                var canBullet = game.add.sprite(0,0, 'cans');
-                canBullets.add(canBullet);
+                var letterBullet = game.add.sprite(0,0, 'letters');
+                lettersBullets.add(letterBullet);
 
-                canBullet.anchor.setTo(0.5,0.5);
-                game.physics.arcade.enable(canBullet);
-                canBullet.kill();
+                letterBullet.anchor.setTo(0.5,0.5);
+                game.physics.arcade.enable(letterBullet);
+                letterBullet.kill();
             }
 
             enemies = game.add.group();
-
+            
+           //timer = game.time.create(false);
+           //timer.loop(5000, updateCounter, this);
+           //timer.start();
         },
     
         update: function () {
             
 			// UI of grandma's "ammo" cans of catfood
-            bulletText.setText("Cans of food: " + canArray.length);
+            bulletText.setText("Cans of food: " + letterArray.length);
 
 			// Quit game on player death
             if(lives <= 0)
@@ -260,9 +268,9 @@ GameStates.makeGame = function( game, shared ) {
             }
 
             // If there's less cans of catfood then there should be, spawn more
-            if(cansGroup.countLiving() < maxCans)
+            if(lettersGroup.countLiving() < maxLetters)
             {
-                spawnCan(game.rnd.integerInRange(0, game.world.width), game.rnd.integerInRange(0, game.world.width), 0, 0);
+                spawnLetter(game.rnd.integerInRange(0, game.world.width), game.rnd.integerInRange(0, game.world.width), 0, 0);
             }
             
 			// Use phaser arcade physics for collision
@@ -316,10 +324,10 @@ GameStates.makeGame = function( game, shared ) {
 			// Mouse 1 fires cans at the cats and you can't pick up cans while you're firing
             if(game.input.activePointer.isDown)
             {
-                shootCan();
+                shootLetter();
             } else
             {
-                cansGroup.forEachAlive(function(m)
+                lettersGroup.forEachAlive(function(m)
                 {
                     var distance = this.game.math.distance(m.x,m.y, player.x, player.y)
 
@@ -332,7 +340,7 @@ GameStates.makeGame = function( game, shared ) {
             } 
 	
             // Vacuum up cans of catfood that are within range
-            cansGroup.forEachAlive(function(m)
+            lettersGroup.forEachAlive(function(m)
             {
                 var distance = this.game.math.distance(m.x,m.y, player.x, player.y)
                 
@@ -342,7 +350,7 @@ GameStates.makeGame = function( game, shared ) {
 
                     if(distance < 5)
                     {
-                        canArray.unshift(m.frame);
+                        letterArray.unshift(m.frame);
                         m.kill();
                     }
                 }
@@ -370,7 +378,7 @@ GameStates.makeGame = function( game, shared ) {
                 }
             }
             
-            canBullets.forEachAlive(function(m)
+            lettersBullets.forEachAlive(function(m)
             {
                 
                 if(m.body.velocity.x === 0 && m.body.velocity.y === 0)
@@ -382,12 +390,15 @@ GameStates.makeGame = function( game, shared ) {
             enemies.forEachAlive(function(m)
             {
                 game.physics.arcade.collide(m,enemies);
-                var hit = game.physics.arcade.collide(m, canBullets);
+                var hit = game.physics.arcade.collide(m, lettersBullets);
                 if(hit)
                 {
                     m.x +=  (Math.cos((m.rotation + Math.PI) % (2 *Math.PI)) * 20);
                     m.y +=  (Math.sin((m.rotation + Math.PI) % (2 *Math.PI)) * 20);
+                    //m.damage();
+                    //game.camera.shake(0.01, 200);
                     m.kill();
+
                 }
             },this);
             
