@@ -312,10 +312,12 @@ GameStates.makeGame = function( game, shared ) {
 			
 			// Grandma's Bullet-time
 			if(space.isDown){
+				game.camera.shake(0.01, 200);
 				Speed = 300;
 				Enemy.SPEED = 75
 			} else
 			{
+				game.camera.shake(0.01, 200);
 				Speed = 200;
 				Enemy.SPEED = 150;
 			}
@@ -396,7 +398,7 @@ GameStates.makeGame = function( game, shared ) {
                     m.x +=  (Math.cos((m.rotation + Math.PI) % (2 *Math.PI)) * 20);
                     m.y +=  (Math.sin((m.rotation + Math.PI) % (2 *Math.PI)) * 20);
                     //m.damage();
-                    game.camera.shake(0.01, 200);
+                    //game.camera.shake(0.01, 200);
                     m.kill();
 
                 }
