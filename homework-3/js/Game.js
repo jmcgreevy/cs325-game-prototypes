@@ -17,8 +17,8 @@ GameStates.makeGame = function( game, shared ) {
 
     var maxLetters = 150;    
 
-    var vomitSpeed = 200;    
-    var vomitDrag = 100;
+    //var vomitSpeed = 200;    
+    //var vomitDrag = 100;
     var vacuumRadius;
     var vacuum = true;
 
@@ -39,7 +39,7 @@ GameStates.makeGame = function( game, shared ) {
 
     var style;
     var bulletText;
-    var healthText;
+    //var healthText;
 
     //var SpecialText;
     //var SpecialBomb;
@@ -84,7 +84,7 @@ GameStates.makeGame = function( game, shared ) {
         //bullet.body.velocity.x = Math.cos(bullet.rotation) * enemybulletSpeed;
         //bullet.body.velocity.y = Math.sin(bullet.rotation) * enemybulletSpeed;
     }
-	*/
+	
 
     function vomitLetters(x,y,direction)
     {
@@ -94,6 +94,7 @@ GameStates.makeGame = function( game, shared ) {
         }
     }
 
+	*/
     
 
 	/*
@@ -133,8 +134,6 @@ GameStates.makeGame = function( game, shared ) {
         //knockback();
     }
 
-    
-
     function spawnLetter(x,y, rotation, speed)
     {
         var letter = lettersGroup.getFirstDead();
@@ -151,15 +150,13 @@ GameStates.makeGame = function( game, shared ) {
         letter.vacuum = false;
         letter.body.velocity.x =Math.cos(rotation) * speed;
         letter.body.velocity.y = (Math.sin(rotation) * speed);
-        letter.body.drag.setTo(vomitDrag,vomitDrag);
+        //letter.body.drag.setTo(vomitDrag,vomitDrag);
         letter.checkWorldBounds = true;
         letter.outOfBoundsKill = true;
         letter.x = x;
         letter.y = y;
 
     }
-
-   
 
     var Enemy = function(game, x,y)
     {
@@ -169,16 +166,12 @@ GameStates.makeGame = function( game, shared ) {
         
         this.body.setCircle(16);
 
-        this.health = 5;
+        this.health = 1; // was 5
         this.turnDirection = 1;
         this.SPEED = 75;
         this.LETTERDELAY = 5000;
         this.LASTLETTERFIRED;
         this.distanceToPlayer = 0;
-        
-
-
-
     }
 
     Enemy.prototype = Object.create(Phaser.Sprite.prototype);
@@ -202,7 +195,6 @@ GameStates.makeGame = function( game, shared ) {
         this.distanceToPlayer = game.math.distance(this.x,this.y, player.x, player.y);
         
         
-           
         this.body.velocity.x = Math.cos(this.rotation) * this.SPEED;
         this.body.velocity.y = Math.sin(this.rotation) * this.SPEED;
 
@@ -258,8 +250,8 @@ GameStates.makeGame = function( game, shared ) {
             
             style = {font: "14px Arial", fill: "#ffffff"};
 
-            healthText = game.add.text(0,0, "Health: 3");
-            bulletText = game.add.text(0, 24, "Ammo: 0");
+            //healthText = game.add.text(0,0, "Health: 3");
+            bulletText = game.add.text(0, 24, "Cans of food: 0");
             //SpecialText = game.add.text(0,48 , "BOMB"); 
             //SpecialText.addColor('#5f574f',0);
             game.stage.backgroundColor = 0x5f574f;
@@ -292,7 +284,6 @@ GameStates.makeGame = function( game, shared ) {
                 game.physics.arcade.enable(letterS);
                 letterS.kill();
 
-                
             }
 
 
@@ -317,7 +308,7 @@ GameStates.makeGame = function( game, shared ) {
         update: function () {
             
             bulletText.setText("Ammo: " + letterArray.length);
-            healthText.setText("Health: " + lives);
+            //healthText.setText("Health: " + lives);
 
             if(lives <= 0)
             {
