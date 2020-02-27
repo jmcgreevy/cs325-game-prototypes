@@ -350,7 +350,7 @@ GameStates.makeGame = function( game, shared ) {
 
                     if(distance < 5)
                     {
-                        //letterArray.unshift(m.frame);
+                        letterArray.unshift(m.frame);
                         m.kill();
                     }
                 }
