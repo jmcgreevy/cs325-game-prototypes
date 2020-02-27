@@ -31,6 +31,7 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('enemy', 'assets/cat.png');
 			game.load.image('player', 'assets/grandma.png');
 			game.load.image('cans', 'assets/can.png');
+			game.load.image('letters', 'assets/textSprite.png');
 			game.load.image('gameOver', 'assets/gameOver.png');
         },
     
