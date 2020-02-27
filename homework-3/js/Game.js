@@ -23,6 +23,8 @@ GameStates.makeGame = function( game, shared ) {
     var vacuum = true;
 
     var Speed = 200;
+	
+	var alwaysTrue = true;
 
 
     var left;
@@ -48,14 +50,6 @@ GameStates.makeGame = function( game, shared ) {
     var timer;
    
 
-	/*
-    function checkSpecial()
-    {
-
-    }
-	*/
-
-
     function spawnEnemy(x, y)
     {
         var enemy = enemies.getFirstDead();
@@ -71,39 +65,6 @@ GameStates.makeGame = function( game, shared ) {
         enemy.x = x;
         enemy.y = y;
     }
-
-	/*
-    function fireBullet(x,y,direction)
-    {
-        //var bullet = enemyBullets.getFirstDead();
-        bullet.revive();
-        bullet.checkWorldBounds = true;
-        bullet.outOfBoundsKill = true;
-        bullet.reset((Math.cos((direction) % (2 *Math.PI)) * 15) + x, (Math.sin((direction) % (2 *Math.PI)) * 15) + y);
-        bullet.rotation = direction;
-        //bullet.body.velocity.x = Math.cos(bullet.rotation) * enemybulletSpeed;
-        //bullet.body.velocity.y = Math.sin(bullet.rotation) * enemybulletSpeed;
-    }
-	
-
-    function vomitLetters(x,y,direction)
-    {
-        for(var i = 0; i < 5; i++)
-        {
-            spawnLetter(x,y, (direction + game.rnd.realInRange(-Math.PI/4, Math.PI/4)), vomitSpeed);
-        }
-    }
-
-	*/
-    
-
-	/*
-    function knockback()
-    {
-        player.x +=  (Math.cos((player.rotation + Math.PI) % (2 *Math.PI)) * 4);
-        player.y +=  (Math.sin((player.rotation + Math.PI) % (2 *Math.PI)) * 4);
-    }
-	*/
 
     function shootLetter()
     {
@@ -147,7 +108,7 @@ GameStates.makeGame = function( game, shared ) {
         }
         letter.revive();
         letter.frame = game.rnd.integerInRange(0,25);
-        //letter.vacuum = false;
+        letter.vacuum = false;
         letter.body.velocity.x =Math.cos(rotation) * speed;
         letter.body.velocity.y = (Math.sin(rotation) * speed);
         //letter.body.drag.setTo(vomitDrag,vomitDrag);
@@ -360,8 +321,8 @@ GameStates.makeGame = function( game, shared ) {
                 //spawnPhrase(game.input.x, game.input.y,3);
             } 
 			
-			/*
-			else if( space.isDown)
+			
+			else if(alwaysTrue)
             {
                 player.frame = 7;
                 lettersGroup.forEachAlive(function(m)
@@ -376,18 +337,7 @@ GameStates.makeGame = function( game, shared ) {
                     
                 }, this);
             } 
-			*/
-			
-			/*
-            if(shift.isDown)
-            {
-                
-                letterShotDelay = 10;
-            } else
-            {
-                letterShotDelay = 100;
-            }
-			*/
+	
             
             lettersGroup.forEachAlive(function(m)
             {
