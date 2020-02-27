@@ -312,8 +312,8 @@ GameStates.makeGame = function( game, shared ) {
 			
 			// Grandma's Bullet-time
 			if(space.isDown){
-				game.camera.shake(0.01, 100);
-				Speed = 300;
+				game.camera.shake(0.01, 75);
+				Speed = 400;
 				Enemy.SPEED = 75
 			} else
 			{
@@ -339,11 +339,10 @@ GameStates.makeGame = function( game, shared ) {
                 }, this);
             } 
 	
-            
+            // Vacuum up cans of catfood that are within range
             lettersGroup.forEachAlive(function(m)
             {
                 var distance = this.game.math.distance(m.x,m.y, player.x, player.y)
-                //game.physics.arcade.collide(m,lettersGroup);
                 
                 if(m.vacuum === true)
                 {
@@ -351,7 +350,7 @@ GameStates.makeGame = function( game, shared ) {
 
                     if(distance < 5)
                     {
-                        letterArray.unshift(m.frame);
+                        //letterArray.unshift(m.frame);
                         m.kill();
                     }
                 }
