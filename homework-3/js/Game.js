@@ -210,7 +210,7 @@ GameStates.makeGame = function( game, shared ) {
             music.play();
             
             //style = {font: "14px Arial", fill: "#ffffff"};
-			style = {font: "14px Comic Sans MS", fill: "#ffffff"};
+			style = {font: "20px Comic Sans", fill: "#ffffff"};
 
             //healthText = game.add.text(0,0, "Health: 3");
             bulletText = game.add.text(0, 0, "Cans of food: 0");
