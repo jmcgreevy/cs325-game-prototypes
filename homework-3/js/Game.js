@@ -1,8 +1,6 @@
 "use strict";
 
-GameStates.makeGame = function( game, shared ) {
-    // Create your own variables.
-    
+GameStates.makeGame = function( game, shared ) { 
     
 	var music;
     var lives = 1;
@@ -18,6 +16,7 @@ GameStates.makeGame = function( game, shared ) {
 
     var maxLetters = 150;    
 
+	// Variables to allow grandma to pick up nearby cans of cat food
     var vacuumRadius;
     var vacuum = true;
 
@@ -30,6 +29,7 @@ GameStates.makeGame = function( game, shared ) {
     var down;
     var space;
 	
+	// Enemy variables
     var maxEnemies = 10;
     var enemies;
 	
@@ -312,12 +312,11 @@ GameStates.makeGame = function( game, shared ) {
 			
 			// Grandma's Bullet-time
 			if(space.isDown){
-				game.camera.shake(0.01, 200);
+				game.camera.shake(0.01, 100);
 				Speed = 300;
 				Enemy.SPEED = 75
 			} else
 			{
-				game.camera.shake(0.01, 200);
 				Speed = 200;
 				Enemy.SPEED = 150;
 			}
