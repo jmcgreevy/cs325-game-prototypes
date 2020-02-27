@@ -6,7 +6,7 @@ GameStates.makeGame = function( game, shared ) {
     
 	var music;
     var lives = 1;
-    var ammo;
+    var cans;
     var player;
     var lettersGroup;
     var letterArray =[];
@@ -31,8 +31,8 @@ GameStates.makeGame = function( game, shared ) {
     var right;
     var up;
     var down;
-    //var space;
-    var shift;
+    var space;
+    //var shift;
 
     var maxEnemies = 10;
     var enemies;
@@ -192,7 +192,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Then let's go back to the main menu.
         music.stop();
         lives = 1;
-        ammo = 0;
+        cans = 0;
 
         maxEnemies = 10;
         maxLetters = 150;
@@ -234,10 +234,10 @@ GameStates.makeGame = function( game, shared ) {
             right = game.input.keyboard.addKey(Phaser.Keyboard.D);
             up = game.input.keyboard.addKey(Phaser.Keyboard.W);
             down = game.input.keyboard.addKey(Phaser.Keyboard.S);
-            //space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
             //shift = game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
-            lettersGroup =game.add.group();
+            lettersGroup = game.add.group();
             for(var i = 0; i < 200; i++)
             {
                 var letterS = game.add.sprite(0,0, 'letters');
@@ -299,7 +299,7 @@ GameStates.makeGame = function( game, shared ) {
             } else if( down.isDown)
             {
                 player.body.velocity.y = Speed;
-            }else
+            } else
             {
                 player.body.velocity.y = 0;
             }
@@ -314,15 +314,19 @@ GameStates.makeGame = function( game, shared ) {
             {
                 player.body.velocity.x = 0;
             }
+			
+			if(space.isDown){
+				Speed = 400;
+			} else
+			{
+				Speed = 200;
+			}
             
             if(game.input.activePointer.isDown)
             {
                 shootLetter();
                 //spawnPhrase(game.input.x, game.input.y,3);
-            } 
-			
-			
-			else if(alwaysTrue)
+            } else
             {
                 player.frame = 7;
                 lettersGroup.forEachAlive(function(m)
