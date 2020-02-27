@@ -29,7 +29,7 @@ GameStates.makeGame = function( game, shared ) {
     var right;
     var up;
     var down;
-    var space;
+    //var space;
     var shift;
 
     var maxEnemies = 10;
@@ -147,7 +147,7 @@ GameStates.makeGame = function( game, shared ) {
         }
         letter.revive();
         letter.frame = game.rnd.integerInRange(0,25);
-        letter.vacuum = false;
+        //letter.vacuum = false;
         letter.body.velocity.x =Math.cos(rotation) * speed;
         letter.body.velocity.y = (Math.sin(rotation) * speed);
         //letter.body.drag.setTo(vomitDrag,vomitDrag);
@@ -248,10 +248,11 @@ GameStates.makeGame = function( game, shared ) {
             music = game.add.audio('catMusic');
             music.play();
             
-            style = {font: "14px Arial", fill: "#ffffff"};
+            //style = {font: "14px Arial", fill: "#ffffff"};
+			style = {font: "14px Comic Sans MS", fill: "#ffffff"};
 
             //healthText = game.add.text(0,0, "Health: 3");
-            bulletText = game.add.text(0, 24, "Cans of food: 0");
+            bulletText = game.add.text(0, 0, "Cans of food: 0");
             //SpecialText = game.add.text(0,48 , "BOMB"); 
             //SpecialText.addColor('#5f574f',0);
             game.stage.backgroundColor = 0x5f574f;
@@ -272,8 +273,8 @@ GameStates.makeGame = function( game, shared ) {
             right = game.input.keyboard.addKey(Phaser.Keyboard.D);
             up = game.input.keyboard.addKey(Phaser.Keyboard.W);
             down = game.input.keyboard.addKey(Phaser.Keyboard.S);
-            space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-            shift = game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+            //space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+            //shift = game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
             lettersGroup =game.add.group();
             for(var i = 0; i < 200; i++)
@@ -307,7 +308,7 @@ GameStates.makeGame = function( game, shared ) {
     
         update: function () {
             
-            bulletText.setText("Ammo: " + letterArray.length);
+            bulletText.setText("Cans of food: " + letterArray.length);
             //healthText.setText("Health: " + lives);
 
             if(lives <= 0)
@@ -357,7 +358,10 @@ GameStates.makeGame = function( game, shared ) {
             {
                 shootLetter();
                 //spawnPhrase(game.input.x, game.input.y,3);
-            } else if( space.isDown)
+            } 
+			
+			/*
+			else if( space.isDown)
             {
                 player.frame = 7;
                 lettersGroup.forEachAlive(function(m)
@@ -372,6 +376,9 @@ GameStates.makeGame = function( game, shared ) {
                     
                 }, this);
             } 
+			*/
+			
+			/*
             if(shift.isDown)
             {
                 
@@ -380,6 +387,7 @@ GameStates.makeGame = function( game, shared ) {
             {
                 letterShotDelay = 100;
             }
+			*/
             
             lettersGroup.forEachAlive(function(m)
             {
