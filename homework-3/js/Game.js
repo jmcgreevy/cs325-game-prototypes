@@ -72,6 +72,7 @@ GameStates.makeGame = function( game, shared ) {
         enemy.y = y;
     }
 
+	/*
     function fireBullet(x,y,direction)
     {
         //var bullet = enemyBullets.getFirstDead();
@@ -83,6 +84,7 @@ GameStates.makeGame = function( game, shared ) {
         //bullet.body.velocity.x = Math.cos(bullet.rotation) * enemybulletSpeed;
         //bullet.body.velocity.y = Math.sin(bullet.rotation) * enemybulletSpeed;
     }
+	*/
 
     function vomitLetters(x,y,direction)
     {
@@ -94,11 +96,13 @@ GameStates.makeGame = function( game, shared ) {
 
     
 
+	/*
     function knockback()
     {
         player.x +=  (Math.cos((player.rotation + Math.PI) % (2 *Math.PI)) * 4);
         player.y +=  (Math.sin((player.rotation + Math.PI) % (2 *Math.PI)) * 4);
     }
+	*/
 
     function shootLetter()
     {
@@ -126,7 +130,7 @@ GameStates.makeGame = function( game, shared ) {
 
         letter.body.velocity.x = Math.cos(letter.rotation) * LBspeed;
         letter.body.velocity.y = Math.sin(letter.rotation) * LBspeed;   
-        knockback();
+        //knockback();
     }
 
     
@@ -305,8 +309,6 @@ GameStates.makeGame = function( game, shared ) {
 
             enemies = game.add.group();
             
-            
-
             timer = game.time.create(false);
            timer.loop(5000, updateCounter, this);
            timer.start();
@@ -393,7 +395,6 @@ GameStates.makeGame = function( game, shared ) {
                 var distance = this.game.math.distance(m.x,m.y, player.x, player.y)
                 //game.physics.arcade.collide(m,lettersGroup);
                 
-
                 if(m.vacuum === true)
                 {
                     game.physics.arcade.moveToObject(m, player, 600);
@@ -404,8 +405,6 @@ GameStates.makeGame = function( game, shared ) {
                         m.kill();
                     }
                 }
-
-
 
             }, this);
             if(enemies.countLiving() < maxEnemies)
@@ -451,9 +450,6 @@ GameStates.makeGame = function( game, shared ) {
 
                 }
             },this);
-            
-            
-            
             
         }
     };
