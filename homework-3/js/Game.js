@@ -4,7 +4,7 @@ GameStates.makeGame = function( game, shared ) {
     
 	var music;
     var lives = 1;
-    var canAmmo;
+    var canAmmo = 0;
     var player;
 	
     var cansGroup;
