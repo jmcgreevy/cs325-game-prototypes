@@ -6,8 +6,9 @@ GameStates.makeGame = function( game, shared ) {
     
 	var music;
     var lives = 1;
-    var cans;
+    var canAmmo;
     var player;
+	
     var lettersGroup;
     var letterArray =[];
     var lettersBullets;
@@ -17,37 +18,24 @@ GameStates.makeGame = function( game, shared ) {
 
     var maxLetters = 150;    
 
-    //var vomitSpeed = 200;    
-    //var vomitDrag = 100;
     var vacuumRadius;
     var vacuum = true;
 
     var Speed = 200;
-	
-	var alwaysTrue = true;
 
-
+	// Player Control variables
     var left;
     var right;
     var up;
     var down;
     var space;
-    //var shift;
-
+	
     var maxEnemies = 10;
     var enemies;
-    //var enemyBullets;
-    //var enemybulletSpeed = 200;
-
+	
     var style;
     var bulletText;
-    //var healthText;
-
-    //var SpecialText;
-    //var SpecialBomb;
-
-
-    var timer;
+    //var timer;
    
 
     function spawnEnemy(x, y)
@@ -192,7 +180,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Then let's go back to the main menu.
         music.stop();
         lives = 1;
-        cans = 0;
+        canAmmo = 0;
 
         maxEnemies = 10;
         maxLetters = 150;
@@ -210,7 +198,7 @@ GameStates.makeGame = function( game, shared ) {
             music.play();
             
             //style = {font: "14px Arial", fill: "#ffffff"};
-			style = {font: "20px Comic Sans", fill: "#ffffff"};
+			style = {font: "25px Comic Sans", fill: "#ffffff"};
 
             //healthText = game.add.text(0,0, "Health: 3");
             bulletText = game.add.text(0, 0, "Cans of food: 0");
@@ -262,9 +250,9 @@ GameStates.makeGame = function( game, shared ) {
 
             enemies = game.add.group();
             
-            timer = game.time.create(false);
-           timer.loop(5000, updateCounter, this);
-           timer.start();
+           //timer = game.time.create(false);
+           //timer.loop(5000, updateCounter, this);
+           //timer.start();
         },
     
         update: function () {
@@ -315,11 +303,14 @@ GameStates.makeGame = function( game, shared ) {
                 player.body.velocity.x = 0;
             }
 			
+			// Grandma's Bullet-time
 			if(space.isDown){
-				Speed = 400;
+				Speed = 300;
+				Enemy.SPEED = 30
 			} else
 			{
 				Speed = 200;
+				Enemy.SPEED = 75;
 			}
             
             if(game.input.activePointer.isDown)
