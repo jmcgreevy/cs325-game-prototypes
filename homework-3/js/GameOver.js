@@ -19,7 +19,7 @@ var GameOver = function( game) {
         create: function () {
     
 			
-            game.add.sprite(0, 0, 'GameOver');
+            game.add.sprite(0, 0, 'gameOver');
             music = game.add.audio('catMusic');
             music.play();
 
