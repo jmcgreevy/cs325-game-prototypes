@@ -115,9 +115,9 @@ GameStates.makeGame = function( game, shared ) {
         
         this.body.setCircle(16);
 
-        this.health = 1; // was 5
+        this.health = 1;
         this.turnDirection = 1;
-        this.SPEED = 75;
+        this.SPEED = 150;
         this.LETTERDELAY = 5000;
         this.LASTLETTERFIRED;
         this.distanceToPlayer = 0;
@@ -194,36 +194,37 @@ GameStates.makeGame = function( game, shared ) {
     
         create: function () {
            
+			// Load in the music (I couldn't get this to work)
             music = game.add.audio('catMusic');
             music.play();
             
-            //style = {font: "14px Arial", fill: "#ffffff"};
+			// Load font for UI
 			style = {font: "25px Comic Sans", fill: "#ffffff"};
-
-            //healthText = game.add.text(0,0, "Health: 3");
+			
+			// Track grandma's ammo on screen
             bulletText = game.add.text(0, 0, "Cans of food: 0");
-            //SpecialText = game.add.text(0,48 , "BOMB"); 
-            //SpecialText.addColor('#5f574f',0);
+
+			// Game Background
             game.stage.backgroundColor = 0x5f574f;
+			
+			// Spawn grandma in the center of the game
             player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
-            
             player.anchor.setTo(0.5, 0.5);
             
-            //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+            // Using Phaser arcade physics
             game.physics.startSystem(Phaser.Physics.Arcade); 
             game.physics.arcade.enable(player, true);
 
             player.body.setCircle(16);
             player.body.collideWorldBounds= true;
 
-
-
+			// Setting up controls (general movement + bullet time)
             left = game.input.keyboard.addKey(Phaser.Keyboard.A);
             right = game.input.keyboard.addKey(Phaser.Keyboard.D);
             up = game.input.keyboard.addKey(Phaser.Keyboard.W);
             down = game.input.keyboard.addKey(Phaser.Keyboard.S);
             space = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-            //shift = game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+
 
             lettersGroup = game.add.group();
             for(var i = 0; i < 200; i++)
@@ -257,30 +258,36 @@ GameStates.makeGame = function( game, shared ) {
     
         update: function () {
             
+			// UI of grandma's "ammo" cans of catfood
             bulletText.setText("Cans of food: " + letterArray.length);
-            //healthText.setText("Health: " + lives);
 
+			// Quit game on player death
             if(lives <= 0)
             {
                 quitGame();
             }
 
-            
+            // If there's less cans of catfood then there should be, spawn more
             if(lettersGroup.countLiving() < maxLetters)
             {
                 spawnLetter(game.rnd.integerInRange(0, game.world.width), game.rnd.integerInRange(0, game.world.width), 0, 0);
             }
             
+			// Use phaser arcade physics for collision
             var playerhit= game.physics.arcade.collide(player,enemies);
             
+			// Reduce player lives if hit
             if(playerhit)
             {
                 lives--;
             }
 
+			// Use phaser arcade physics for aiming
             player.rotation = game.physics.arcade.angleToPointer(player);
-            
-            player.frame = 0;
+      
+            //player.frame = 0;
+			
+			// Player movement controls
             if(up.isDown)
             {
                 player.body.velocity.y = -Speed;
@@ -306,20 +313,19 @@ GameStates.makeGame = function( game, shared ) {
 			// Grandma's Bullet-time
 			if(space.isDown){
 				Speed = 300;
-				Enemy.SPEED = 30
+				Enemy.SPEED = 75
 			} else
 			{
 				Speed = 200;
-				Enemy.SPEED = 75;
+				Enemy.SPEED = 150;
 			}
             
+			// Mouse 1 fires cans at the cats and you can't pick up cans while you're firing
             if(game.input.activePointer.isDown)
             {
                 shootLetter();
-                //spawnPhrase(game.input.x, game.input.y,3);
             } else
             {
-                player.frame = 7;
                 lettersGroup.forEachAlive(function(m)
                 {
                     var distance = this.game.math.distance(m.x,m.y, player.x, player.y)
@@ -328,8 +334,7 @@ GameStates.makeGame = function( game, shared ) {
                     {
                          m.vacuum = true;
                     }
-
-                    
+					
                 }, this);
             } 
 	
@@ -351,6 +356,8 @@ GameStates.makeGame = function( game, shared ) {
                 }
 
             }, this);
+			
+			// Spawn more enemies in
             if(enemies.countLiving() < maxEnemies)
             {
                 
