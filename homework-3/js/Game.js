@@ -14,7 +14,7 @@ GameStates.makeGame = function( game, shared ) {
     var canFireDelay = 100;
     var lastCanShotAt;
 
-    var maxCans = 150;    
+    var maxCans = 50;    
 
 	// Variables to allow grandma to pick up nearby cans of cat food
     var vacuumRadius;
@@ -94,7 +94,7 @@ GameStates.makeGame = function( game, shared ) {
         can.revive();
         can.frame = game.rnd.integerInRange(0,25);
         can.vacuum = false;
-        can.body.velocity.x =Math.cos(rotation) * speed;
+        can.body.velocity.x = Math.cos(rotation) * speed;
         can.body.velocity.y = (Math.sin(rotation) * speed);
         can.checkWorldBounds = true;
         can.outOfBoundsKill = true;
@@ -161,6 +161,7 @@ GameStates.makeGame = function( game, shared ) {
         
     }
 
+	// Increases the number of cats as the game goes on
     function updateCounter()
     {
         maxEnemies += 2;
@@ -172,7 +173,7 @@ GameStates.makeGame = function( game, shared ) {
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
-        //  Then let's go back to the main menu.
+        // Then finally the game over screen
         music.stop();
         lives = 1;
         canAmmo = 0;
@@ -303,10 +304,11 @@ GameStates.makeGame = function( game, shared ) {
             }
 			
 			// Grandma's Bullet-time
-			if(space.isDown){
-				game.camera.shake(0.01, 75);
+			if(space.isDown)
+			{
+				game.camera.shake(0.01, 50);
 				Speed = 400;
-				Enemy.SPEED = 75
+				Enemy.SPEED = 75;
 			} else
 			{
 				Speed = 200;
