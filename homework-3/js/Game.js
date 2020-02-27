@@ -10,7 +10,7 @@ GameStates.makeGame = function( game, shared ) {
     var cansGroup;
     var canArray =[];
     var canBullets;
-    var canSpeed = 300;
+    var canSpeed = 500;
     var canFireDelay = 100;
     var lastCanShotAt;
 
