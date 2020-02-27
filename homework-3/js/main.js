@@ -13,9 +13,13 @@ window.onload = function() {
 	// the high score if you want.
 	var shared = {};
 	
+	// Boot loads in the loading bar and background in preloader
 	game.state.add( 'Boot', GameStates.makeBoot( game ) );
+	// Preloader loads all the stuff from boot
 	game.state.add( 'Preloader', GameStates.makePreloader( game ) );
+	// MainMenu loads in the background music and the playbutton before letting you play the game
 	game.state.add( 'MainMenu', GameStates.makeMainMenu( game, shared ) );
+	// Game is the file that actually has the entire game in it
 	game.state.add( 'Game', GameStates.makeGame( game, shared ) );
 
 	//	Now start the Boot state.
