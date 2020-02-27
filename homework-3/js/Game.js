@@ -4,7 +4,7 @@ GameStates.makeGame = function( game, shared ) {
     // Create your own variables.
     
     
-   var music;
+	var music;
     var lives = 1;
     var ammo;
     var player;
@@ -34,24 +34,26 @@ GameStates.makeGame = function( game, shared ) {
 
     var maxEnemies = 10;
     var enemies;
-    var enemyBullets;
-    var enemybulletSpeed = 200;
+    //var enemyBullets;
+    //var enemybulletSpeed = 200;
 
     var style;
     var bulletText;
     var healthText;
 
-    var SpecialText;
-    var SpecialBomb;
+    //var SpecialText;
+    //var SpecialBomb;
 
 
     var timer;
    
 
+	/*
     function checkSpecial()
     {
 
     }
+	*/
 
 
     function spawnEnemy(x, y)
@@ -72,14 +74,14 @@ GameStates.makeGame = function( game, shared ) {
 
     function fireBullet(x,y,direction)
     {
-        var bullet = enemyBullets.getFirstDead();
+        //var bullet = enemyBullets.getFirstDead();
         bullet.revive();
         bullet.checkWorldBounds = true;
         bullet.outOfBoundsKill = true;
         bullet.reset((Math.cos((direction) % (2 *Math.PI)) * 15) + x, (Math.sin((direction) % (2 *Math.PI)) * 15) + y);
         bullet.rotation = direction;
-        bullet.body.velocity.x = Math.cos(bullet.rotation) * enemybulletSpeed;
-        bullet.body.velocity.y = Math.sin(bullet.rotation) * enemybulletSpeed;
+        //bullet.body.velocity.x = Math.cos(bullet.rotation) * enemybulletSpeed;
+        //bullet.body.velocity.y = Math.sin(bullet.rotation) * enemybulletSpeed;
     }
 
     function vomitLetters(x,y,direction)
@@ -247,15 +249,15 @@ GameStates.makeGame = function( game, shared ) {
     
         create: function () {
            
-            music = game.add.audio('gameMusic');
+            music = game.add.audio('catMusic');
             music.play();
             
             style = {font: "14px Arial", fill: "#ffffff"};
 
             healthText = game.add.text(0,0, "Health: 3");
             bulletText = game.add.text(0, 24, "Ammo: 0");
-            SpecialText = game.add.text(0,48 , "BOMB"); 
-            SpecialText.addColor('#5f574f',0);
+            //SpecialText = game.add.text(0,48 , "BOMB"); 
+            //SpecialText.addColor('#5f574f',0);
             game.stage.backgroundColor = 0x5f574f;
             player = game.add.sprite(game.world.centerX, game.world.centerY, 'player');
             
