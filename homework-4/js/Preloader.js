@@ -4,6 +4,8 @@ GameStates.makePreloader = function( game ) {
 
 	var background = null;
 	var preloadBar = null;
+	
+	var music = null;
 
 	var ready = false;
 
@@ -43,6 +45,9 @@ GameStates.makePreloader = function( game ) {
     
             //	Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
             preloadBar.cropEnabled = false;
+		
+		music = game.add.audio('titleMusic');
+		music.play();
     
         },
     
