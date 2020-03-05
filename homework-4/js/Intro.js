@@ -1,6 +1,6 @@
 "use strict";
 
-BasicGame.Intro = function (game) {
+BasicGame.makeIntro = function (game) {
 
     this.lines = [
         "ARRRRRGGGGHHH lassie, it be me lunch time.\n(ENTER to continue)",
