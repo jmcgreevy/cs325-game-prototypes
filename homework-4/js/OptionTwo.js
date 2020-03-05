@@ -11,7 +11,7 @@ GameStates.makeOptionTwo = function( game, shared ) {
         //music.stop();
 
         //	And start the actual game
-        game.state.start('Game');
+        game.state.start('MainMenu');
 
     }
     
@@ -28,7 +28,7 @@ GameStates.makeOptionTwo = function( game, shared ) {
     
             game.add.sprite(0, 0, 'optionTwo');
     
-            playButton = game.add.button( 100, 475, 'playButton', startGame, null, 'over', 'out', 'down');
+            playButton = game.add.button( 300, 475, 'backButton', startGame, null, 'over', 'out', 'down');
     
         },
     

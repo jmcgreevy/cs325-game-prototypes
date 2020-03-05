@@ -28,7 +28,7 @@ GameStates.makeOptionFour = function( game, shared ) {
     
             game.add.sprite(0, 0, 'optionFour');
     
-            playButton = game.add.button( 100, 475, 'playButton', startGame, null, 'over', 'out', 'down');
+            playButton = game.add.button( 300, 475, 'playButton', startGame, null, 'over', 'out', 'down');
     
         },
     

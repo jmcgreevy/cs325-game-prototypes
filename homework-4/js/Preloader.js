@@ -31,11 +31,10 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('optionFour', 'assets/option4.png');
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
 			game.load.atlas('selectButton', 'assets/select_button.png', 'assets/play_button.json');
+			game.load.atlas('backButton', 'assets/back_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
-			game.load.image('enemy', 'assets/cat.png');
-			game.load.image('player', 'assets/grandma.png');
-			game.load.image('cans', 'assets/can.png');
+			
 			game.load.image('gameOver', 'assets/gameOver.png');
         },
     
