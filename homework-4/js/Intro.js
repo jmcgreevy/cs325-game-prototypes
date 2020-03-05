@@ -1,6 +1,6 @@
 "use strict";
 
-BasicGame.makeIntro = function (game) {
+BasicGame.makeIntro = function (game, shared) {
 
     this.lines = [
         "ARRRRRGGGGHHH lassie, it be me lunch time.\n(ENTER to continue)",
