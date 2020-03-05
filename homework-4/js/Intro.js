@@ -27,7 +27,7 @@ GameStates.makeIntro = function (game, shared) {
     
     this.captain = null;
 	
-		create: function () {
+	create: function () {
 
         this.game.add.sprite(0, 0, 'shipb');
         
@@ -88,7 +88,6 @@ GameStates.makeIntro = function (game, shared) {
     startGame: function () {
 		this.state.start('Game');
 	}
-	
 };
 
 /*
