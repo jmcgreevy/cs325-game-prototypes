@@ -25,6 +25,10 @@ GameStates.makePreloader = function( game ) {
             //	As this is just a Project Template I've not provided these assets, swap them for your own.
             game.load.image('titlePage', 'assets/title.png');
 			game.load.image('titlePage2', 'assets/title2.png');
+			game.load.image('optionOne', 'assets/option1.png');
+			game.load.image('optionTwo', 'assets/option2.png');
+			game.load.image('optionThree', 'assets/option3.png');
+			game.load.image('optionFour', 'assets/option4.png');
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here

@@ -23,6 +23,15 @@ window.onload = function() {
 	// Second menu for testing
 	game.state.add( 'MainMenuTwo', GameStates.makeMainMenuTwo( game, shared ) );
 	
+	// Option 1 Screen
+	game.state.add( 'OptionOne', GameStates.makeOptionOne( game, shared ) );
+	// Option 2 Screen
+	game.state.add( 'OptionTwo', GameStates.makeOptionTwo( game, shared ) );
+	// Option 3 Screen
+	game.state.add( 'OptionThree', GameStates.makeOptionThree( game, shared ) );
+	// Option 4 Screen
+	game.state.add( 'OptionFour', GameStates.makeOptionFour( game, shared ) );
+	
 	// Game is the file that actually has the entire game in it
 	game.state.add( 'Game', GameStates.makeGame( game, shared ) );
 	// GameOver is the state of the game over screen
