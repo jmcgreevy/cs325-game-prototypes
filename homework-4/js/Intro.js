@@ -26,8 +26,72 @@ GameStates.makeIntro = function (game, shared) {
     this.clickForward = null;
     
     this.captain = null;
+	
+		create: function () {
+
+        this.game.add.sprite(0, 0, 'shipb');
+        
+        var style = { font: "25px Times New Roman", fill: "#ffffff", align: "center" };
+        this.text = this.add.text( this.world.centerX, 15, "test", style );
+        this.text.anchor.setTo( 0.5, 0.0 );
+
+        //this.enterKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+		this.clickForward = this.input(game.input.activePointer.isDown);
+        //this.enterKey.onDown.add(function() { this.nextLine(); }, this);
+		this.clickForward.add(function() { this.nextLine(); }, this);
+        
+		// Puts the sprite in the middle of the scren
+        this.captain = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY,
+            'captain');
+        this.captain.anchor.setTo(.5, .5);
+        
+		//this.game.add.audio('fx').play();
+		//this.game.add.audio('music').play();
+		
+        this.nextLine();
+	},
+
+    addLetter: function () {
+        
+        if(this.lineIndex >= this.lines.length){
+            this.text.setText("");
+            return;
+        }
+        
+        this.text.setText(this.lines[this.lineIndex].substring(0, this.sentenceIndex));
+        this.sentenceIndex++;
+        
+        if(this.sentenceIndex % 5 == 0){
+            this.captain.frame = (this.captain.frame == 0 ? 1 : 0);
+        }
+    },
+    
+    nextLine: function () {
+
+        this.time.events.removeAll();
+        this.lineIndex++;
+        
+        this.text.setText("");
+        
+        if(this.lineIndex >= this.lines.length){
+            this.enterKey.reset(true);
+            this.startGame();
+            return;
+        }
+        
+        this.sentenceIndex = 0;
+        this.captain.frame = 0;
+        
+        this.time.events.repeat(.05, this.lines[this.lineIndex].length + 1, this.addLetter, this);
+    },
+
+    startGame: function () {
+		this.state.start('Game');
+	}
+	
 };
 
+/*
 GameStates.Intro.prototype = {
     
 	create: function () {
@@ -92,3 +156,4 @@ GameStates.Intro.prototype = {
 		this.state.start('Game');
 	}
 };
+*/
