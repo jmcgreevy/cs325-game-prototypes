@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser Basic Project Template</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/Game.js"></script>
+	<script src="js/GameOver.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Crazy Cat Lady's CAT-astrophe</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+What is original about your game? <br>
+It's a game about an elderly cat-lady trying to fight off a horde of hungry kitties with her cat-food launcher. It also has a bullet time mechanic (spacebar) that allows you to more easily dodge cats, but using it causes headaches for the crazy cat lady. You can also use WASD keys to move rather than just the arrow keys.
+</li>
+
+<li><strong>Technical Merit:</strong>
+What is interesting about your game technology? <br> 
+The bullet-time mechanic is pretty interesting, if I come back to this later I'd like to try and have it be on a timer, or else the crazy cat lady would first need to grab a power-up in order to use it for a short period of time.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype? <br> 
+I learned how valuable it can be to reference other student's code, both for inspiration and also for learning how much phaser can actually do.
+</li>
+
+<li><strong>Prototype Assets:</strong>
+All of the art I made myself<br>
+I couldn't get music to work even after I did exactly the same thing for the default menu music, but its supposed to be this song
+<li>
+https://www.youtube.com/watch?v=SaA_cs4WZHM
+</li>
+
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+I was going through phaser examples on piazza and then came across a student who had a pretty good past project. While the main mechanic of dodging stays the same, I wanted to introduce a new element of "bullet-time" where you can move faster while the enemies move slower.
+<ul>
+<li>
+https://github.com/deepfriedchickenfried/cs325-game-prototypes/tree/master/Prototype-5
+</li>  
+</ul>
+</li>
+
+<li><strong>High Concept:</strong>
+A one-sentence summary of your game.<br>
+It's dinner time for your kitties, but you need to be prepared in order to prevent yourself from being overrun.
+</li>
+
+<li><strong>Theme:</strong>
+State which of the Storymatic themes you used.<br>
+I used the "person with lots and lots of cats" storymatic card for inspiration.
+</li>
+
+<li><strong>Mandated Variety:</strong>
+State which input, randomness, genre, and play style you used in this prototype.<br>
+Press spacebar in order to enter the "Crazy Cat Lady Bullet Time," which causes your screen to shake, but you become much faster than your kitties.
+</li>
+
+<li><strong>Prototype Goal:</strong>
+What game mechanic is this prototype evaluating?<br>
+Speeding up while holding spacebar is the main mechanic, the screenshake is an extra layer of difficulty due to the cans and cats both being orange.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+What experience do you want players to have when playing your game?<br>
+I want players to have fun trying to survive as long as they can.
+</li>
+
+<li><strong>Gameplay:</strong>
+Your feeble old body can only take a single hit from the cats, so you have to try and last as long as possible. Press spacebar in order to gain a burst of speed at the cost of the screen becoming shaky.
+</li>
+
+<li><strong>Strategies:</strong>
+What player strategies do you expect will be effective at playing this game?<br>
+If your fast enough, you can try and herd the cats in the center of the screen so that way you have an easier time dodging. Be warned though, its as difficult as herding cats.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+A simple premise of the dangers of owning too many cats. Especially hungry ones. One wrong move and the cats have no problems eating you instead.
+</li>
+
+<li><strong>Target Audience:</strong>
+People who like cats. And actually, people who don't like cats might enjoy shooting at them as well.
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?<br>
+The longest I was able to play without a game over was a few minutes. After a certain point you get overwhelmed.
+</li>
+
+</ul>
+</div>
+</body>
+</html>
