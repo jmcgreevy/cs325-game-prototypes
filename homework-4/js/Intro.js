@@ -49,7 +49,7 @@ GameStates.makeIntro = function (game, shared) {
 		//this.game.add.audio('music').play();
 		
         this.nextLine();
-	},
+	}
 
     function addLetter() {
         
@@ -64,7 +64,7 @@ GameStates.makeIntro = function (game, shared) {
         if(this.sentenceIndex % 5 == 0){
             this.captain.frame = (this.captain.frame == 0 ? 1 : 0);
         }
-    },
+    }
     
     function nextLine() {
 
@@ -83,7 +83,7 @@ GameStates.makeIntro = function (game, shared) {
         this.captain.frame = 0;
         
         this.time.events.repeat(.05, this.lines[this.lineIndex].length + 1, this.addLetter, this);
-    },
+    }
 
     function startGame() {
 		this.state.start('Game');
