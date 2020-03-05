@@ -32,9 +32,9 @@ GameStates.makeMainMenuTwo = function( game, shared ) {
 			
 			playButton = game.add.button( 225, 450, 'playButton', startGame, null, 'over', 'out', 'down');
 			
-			playButton = game.add.button( 450, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton = game.add.button( 425, 450, 'playButton', startGame, null, 'over', 'out', 'down');
 		
-			playButton = game.add.button( 590, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton = game.add.button( 590, 450, 'playButton', startGame, null, 'over', 'out', 'down');
     
         },
     
