@@ -1,6 +1,6 @@
 "use strict";
 
-BasicGame.makeIntro = function (game, shared) {
+GameStates.makeIntro = function (game, shared) {
 
     this.lines = [
         "ARRRRRGGGGHHH lassie, it be me lunch time.\n(ENTER to continue)",
@@ -28,7 +28,7 @@ BasicGame.makeIntro = function (game, shared) {
     this.captain = null;
 };
 
-BasicGame.Intro.prototype = {
+GameStates.Intro.prototype = {
     
 	create: function () {
 
