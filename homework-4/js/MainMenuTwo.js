@@ -31,16 +31,16 @@ GameStates.makeMainMenuTwo = function( game, shared ) {
     
             game.add.sprite(0, 0, 'titlePage2');
     
-            playButton1 = game.add.button( 10, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+            playButton1 = game.add.button( 10, 350, 'playButton', startGame, null, 'over', 'out', 'down');
 		playButton1.scale.setTo(1, 3);
 			
-			playButton2 = game.add.button( 210, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton2 = game.add.button( 210, 350, 'playButton', startGame, null, 'over', 'out', 'down');
 		playButton2.scale.setTo(1, 3);
 			
-			playButton3 = game.add.button( 410, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton3 = game.add.button( 410, 350, 'playButton', startGame, null, 'over', 'out', 'down');
 		playButton3.scale.setTo(1, 3);
 		
-			playButton4 = game.add.button( 590, 400, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton4 = game.add.button( 600, 350, 'playButton', startGame, null, 'over', 'out', 'down');
 		playButton4.scale.setTo(1, 3);
     
         },
