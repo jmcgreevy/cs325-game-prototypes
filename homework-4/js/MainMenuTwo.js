@@ -11,7 +11,7 @@ GameStates.makeMainMenuTwo = function( game, shared ) {
     function startGame(pointer) {
 
         //	Ok, the Play Button has been clicked or touched, so let's stop the music (otherwise it'll carry on playing)
-        music.stop();
+        //music.stop();
 
         //	And start the actual game
         game.state.start('Game');
