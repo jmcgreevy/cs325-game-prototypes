@@ -3,8 +3,8 @@
 BasicGame.Intro = function (game) {
 
     this.lines = [
-        "ARRRRRGGGGHHH lassie, it be me lunch time.\n(ENTER to continue)",
-        "Go make me a wich of the sand the way a rrrrreal pirate does.\n(ENTER to continue)",
+        "TEST.\n(ENTER to continue)",
+        "Another test\n(ENTER to continue)",
         "What's that? YE DON'T KNOW HOW TO?!?!?!!\n(ENTER to continue)",
         "Well let me teach ye young swachbuckler.\n(ENTER to continue)",
         "We load up that there cannon with our ingredients\nAND SHOOT EM AT THE CREWWWWW!\n(ENTER to continue)",
