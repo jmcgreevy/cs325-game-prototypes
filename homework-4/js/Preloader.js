@@ -26,7 +26,7 @@ GameStates.makePreloader = function( game ) {
             game.load.image('titlePage', 'assets/title.png');
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
-			game.load.audio('catMusic', ['assets/Kitty Cat Dance.mp3']);
+			//game.load.audio('catMusic', ['assets/Kitty Cat Dance.mp3']);
             //	+ lots of other required assets here
 			game.load.image('enemy', 'assets/cat.png');
 			game.load.image('player', 'assets/grandma.png');

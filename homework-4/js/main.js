@@ -20,9 +20,6 @@ window.onload = function() {
 	// MainMenu loads in the background music and the playbutton before letting you play the game
 	game.state.add( 'MainMenu', GameStates.makeMainMenu( game, shared ) );
 	
-	// This should be the intro
-	game.state.add('Intro', GameStates.makeIntro(game, shared) );
-	
 	// Game is the file that actually has the entire game in it
 	game.state.add( 'Game', GameStates.makeGame( game, shared ) );
 	// GameOver is the state of the game over screen
