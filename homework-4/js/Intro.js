@@ -27,7 +27,7 @@ GameStates.makeIntro = function (game, shared) {
     
     this.captain = null;
 	
-	create: function () {
+	function create() {
 
         this.game.add.sprite(0, 0, 'shipb');
         
@@ -51,7 +51,7 @@ GameStates.makeIntro = function (game, shared) {
         this.nextLine();
 	},
 
-    addLetter: function () {
+    function addLetter() {
         
         if(this.lineIndex >= this.lines.length){
             this.text.setText("");
@@ -66,7 +66,7 @@ GameStates.makeIntro = function (game, shared) {
         }
     },
     
-    nextLine: function () {
+    function nextLine() {
 
         this.time.events.removeAll();
         this.lineIndex++;
@@ -85,7 +85,7 @@ GameStates.makeIntro = function (game, shared) {
         this.time.events.repeat(.05, this.lines[this.lineIndex].length + 1, this.addLetter, this);
     },
 
-    startGame: function () {
+    function startGame() {
 		this.state.start('Game');
 	}
 };
