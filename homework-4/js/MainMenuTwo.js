@@ -3,7 +3,10 @@
 GameStates.makeMainMenuTwo = function( game, shared ) {
 
 	var music = null;
-	var playButton = null;
+	var playButton1 = null;
+	var playButton2 = null;
+	var playButton3 = null;
+	var playButton4 = null;
     
     function startGame(pointer) {
 
@@ -28,13 +31,14 @@ GameStates.makeMainMenuTwo = function( game, shared ) {
     
             game.add.sprite(0, 0, 'titlePage2');
     
-            playButton = game.add.button( 25, 450, 'playButton', startGame, null, 'over', 'out', 'down');
+            playButton1 = game.add.button( 25, 450, 'playButton', startGame, null, 'over', 'out', 'down');
+		playButton1.scale.setTo(3, 1);
 			
-			playButton = game.add.button( 225, 450, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton2 = game.add.button( 225, 450, 'playButton', startGame, null, 'over', 'out', 'down');
 			
-			playButton = game.add.button( 425, 450, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton3 = game.add.button( 425, 450, 'playButton', startGame, null, 'over', 'out', 'down');
 		
-			playButton = game.add.button( 590, 450, 'playButton', startGame, null, 'over', 'out', 'down');
+			playButton4 = game.add.button( 590, 450, 'playButton', startGame, null, 'over', 'out', 'down');
     
         },
     
