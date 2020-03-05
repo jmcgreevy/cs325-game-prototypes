@@ -30,6 +30,7 @@ GameStates.makePreloader = function( game ) {
 			game.load.image('optionThree', 'assets/option3.png');
 			game.load.image('optionFour', 'assets/option4.png');
             game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
+			game.load.atlas('selectButton', 'assets/select_button.png', 'assets/play_button.json');
             game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
             //	+ lots of other required assets here
 			game.load.image('enemy', 'assets/cat.png');
