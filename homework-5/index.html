@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Homework 4</title>
+	<script src="js/phaser.min.js"></script>
+	<!-- Boot.js must come first since it creates the BasicGame object
+	that stores all the states. -->
+	<script src="js/Boot.js"></script>
+	<script src="js/Preloader.js"></script>
+	<script src="js/MainMenu.js"></script>
+	<script src="js/MainMenuTwo.js"></script>
+	<script src="js/OptionOne.js"></script>
+	<script src="js/OptionTwo.js"></script>
+	<script src="js/OptionThree.js"></script>
+	<script src="js/OptionFour.js"></script>
+	<script src="js/Game.js"></script>
+	<script src="js/GameOver.js"></script>
+	<!-- main.js must come last since it references the other ones. -->
+	<script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>A Murder Most Fowl</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+What is original about your game? <br>
+It's a murder mystery starring chickens. Other than that naturally being an easy way to make a punny title, I think conceptually its funny enough t o get a chuckle out of some people.
+</li>
+
+<li><strong>Technical Merit:</strong>
+What is interesting about your game technology? <br> 
+As per the mandated variety, I decided to make a text-based game since my other games didn't have such mechanics. Unfortunately there's not too much that's interesting about just a text game.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype? <br> 
+I originally wanted to play around with the text options but I was having trouble getting anything to work. As it stands now, all the text is actually part of the backgrounds when the states are loaded in. If i was able to get text working properly, that could've opened the doors for randomization of clues and murder suspects (if I had enough chicken art)
+</li>
+
+<li><strong>Prototype Assets:</strong>
+All of the art I made myself<br>
+The music I used (called Possession) is from here:
+<li>
+https://www.purple-planet.com/creepy
+</li>
+
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Its similar to any other text-based point and click game, although I wrote all the code myself based off of the state examples.
+<ul>
+</ul>
+</li>
+
+<li><strong>High Concept:</strong>
+A one-sentence summary of your game.<br>
+As Detective Cluck, your job is to pick amongst the suspects from your list of clues, in order to make sure evil-dooers are punished.
+</li>
+
+<li><strong>Theme:</strong>
+State which of the Storymatic themes you used.<br>
+I used the "chicken" storymatic theme. If I had more time to write, I could've also tied it in with "revenge."
+</li>
+
+<li><strong>Mandated Variety:</strong>
+State which input, randomness, genre, and play style you used in this prototype.<br>
+The genre and input is a point and click text-game. The game itself is a whodunnit but because there's no randomness, it is missing replay value.
+</li>
+
+<li><strong>Prototype Goal:</strong>
+What game mechanic is this prototype evaluating?<br>
+This game is completely controlled from the mouse, with no other imputs. Unlike my other games that used WASD or the arrow keys.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+What experience do you want players to have when playing your game?<br>
+While its only a simple text game, I think players would have a chuckle given my dialogue and the reasonings behind each suspect.
+</li>
+
+<li><strong>Gameplay:</strong>
+In order to make sure the right suspect pays for their crimes, you must use deductive reasoning in order to identify who was the murderer.
+</li>
+
+<li><strong>Strategies:</strong>
+What player strategies do you expect will be effective at playing this game?<br>
+The game is pretty forgiving and there aren't a lot of options, so anyone would be able to win given enough time.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+You are Detective Cluck, a chicken who solves murder mysteries. It's your job to make sure the right chicken gets sent to jail.
+</li>
+
+<li><strong>Target Audience:</strong>
+People who like "whodunnit" mystery games. Or just puzzles in general.
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?<br>
+The game is pretty short, even if you pick all the wrong options. From start to finish, its about 1-2 minutes depending on how fast you can read.
+</li>
+
+</ul>
+</div>
+</body>
+</html>
