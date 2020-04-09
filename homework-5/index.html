@@ -1,24 +1,10 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" />
-	<title>Homework 4</title>
-	<script src="js/phaser.min.js"></script>
-	<!-- Boot.js must come first since it creates the BasicGame object
-	that stores all the states. -->
-	<script src="js/Boot.js"></script>
-	<script src="js/Preloader.js"></script>
-	<script src="js/MainMenu.js"></script>
-	<script src="js/MainMenuTwo.js"></script>
-	<script src="js/OptionOne.js"></script>
-	<script src="js/OptionTwo.js"></script>
-	<script src="js/OptionThree.js"></script>
-	<script src="js/OptionFour.js"></script>
-	<script src="js/Game.js"></script>
-	<script src="js/GameOver.js"></script>
-	<!-- main.js must come last since it references the other ones. -->
-	<script src="js/main.js"></script>
-
+    <meta charset="utf-8">
+    <title>Shock</title>
+    <script type="text/javascript" src="js/phaser.js"></script>
+    <script type="module" src="js/index.js"></script>
 <style>
 body
 {
@@ -35,84 +21,69 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>A Murder Most Fowl</h2>
+<h2>Shock</h2>
 
 <ul>
 <li><strong>Originality:</strong>
-What is original about your game? <br>
-It's a murder mystery starring chickens. Other than that naturally being an easy way to make a punny title, I think conceptually its funny enough t o get a chuckle out of some people.
+It's a shooter but it's 2D which is rarely done, I want to try and implement multiple/online play into it so that's another form of originality aswell.
 </li>
 
 <li><strong>Technical Merit:</strong>
-What is interesting about your game technology? <br> 
-As per the mandated variety, I decided to make a text-based game since my other games didn't have such mechanics. Unfortunately there's not too much that's interesting about just a text game.
+There will be multiplayer in future iterations, but for now just the trigonometry required to perform the rotation calculations for the aiming.
 </li>
 
 <li><strong>Prototype Postmortem:</strong>
-What did you learn from this prototype? <br> 
-I originally wanted to play around with the text options but I was having trouble getting anything to work. As it stands now, all the text is actually part of the backgrounds when the states are loaded in. If i was able to get text working properly, that could've opened the doors for randomization of clues and murder suspects (if I had enough chicken art)
+This assignment taught me a lot of the limitations of Phaser, originally I wanted to implement the camera moving with the mouse rotation (as if the player was always facing forward) but there is no way to get canvas coordinates and every coordinate is relative to phaser's camera, so as the camera rotated with the mouse the (x, y) positions would always update causing an infinite spinning effect.
 </li>
 
 <li><strong>Prototype Assets:</strong>
-All of the art I made myself<br>
-The music I used (called Possession) is from here:
-<li>
-https://www.purple-planet.com/creepy
-</li>
-
-</li>
-
-<li><strong>Prototype Closest Other Game:</strong>
-Its similar to any other text-based point and click game, although I wrote all the code myself based off of the state examples.
 <ul>
+<li>Button Press Sound: <a href="https://freesound.org/people/Nightflame/sounds/397599/">Menu FX 02</a></li>
+<li>Pistol Shoot Sound: <a href="https://freesound.org/people/LeMudCrab/sounds/163456/">Pistol Shot</a></li>
+<li>Block sprite: Created by me</li>
+<li>Tilemap: Created by me</li>
+<li>Tileset: Created by me</li>
 </ul>
 </li>
 
+<li><strong>Prototype Closest Other Game:</strong>
+Counter-Strike mixed with a shoot-em up game (Due to POV), you can also equate this to a 2D overhead Quake.
+</li>
+
 <li><strong>High Concept:</strong>
-A one-sentence summary of your game.<br>
-As Detective Cluck, your job is to pick amongst the suspects from your list of clues, in order to make sure evil-dooers are punished.
+You're a competitor in a tournament where people are selected at random to either fight each other or compete through levels of enemies armed with guns.
 </li>
 
 <li><strong>Theme:</strong>
-State which of the Storymatic themes you used.<br>
-I used the "chicken" storymatic theme. If I had more time to write, I could've also tied it in with "revenge."
-</li>
-
-<li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.<br>
-The genre and input is a point and click text-game. The game itself is a whodunnit but because there's no randomness, it is missing replay value.
+The theme of a dystopian future.
 </li>
 
 <li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?<br>
-This game is completely controlled from the mouse, with no other imputs. Unlike my other games that used WASD or the arrow keys.
+The game mechanic being prototyped is the rotational aiming, movement mechanics, and fundamental gameplay (In future iterations it will be multiplayer and refinement).
 </li>
 
 <li><strong>Player Experience Goals:</strong>
-What experience do you want players to have when playing your game?<br>
-While its only a simple text game, I think players would have a chuckle given my dialogue and the reasonings behind each suspect.
+The player should have a fast-paced and exhilarating experience where matches/levels are short but "sweet".
 </li>
 
 <li><strong>Gameplay:</strong>
-In order to make sure the right suspect pays for their crimes, you must use deductive reasoning in order to identify who was the murderer.
+The player should move by using WASD, aim/look with the mouse, possibly run with SHIFT (future iterations), and possibly jump/roll with SPACE (future iterations). You'll have a (future iterations) online options where you face off against others in a server in a deathmatch and possibly team-deathmatch gamemode.
 </li>
 
 <li><strong>Strategies:</strong>
-What player strategies do you expect will be effective at playing this game?<br>
-The game is pretty forgiving and there aren't a lot of options, so anyone would be able to win given enough time.
+Strategies include hiding behind walls and "peeking" when shooting to maximize the cover you get when fighting. Another strategy is the run and gun strategy where you run fast across the map while gunning down your foes.
 </li>
 
 <li><strong>Story/Setting/Premise:</strong>
-You are Detective Cluck, a chicken who solves murder mysteries. It's your job to make sure the right chicken gets sent to jail.
+The world setting is a dystopian future with the world led by one single evil corporation that kidnaps people to put through tournaments such as deathmatches and team-deathmatches. (Story is more of an afterthought, I want to focus more on gameplay and refinement similar to games like Doom, Quake, and Counter-Strike).
 </li>
 
 <li><strong>Target Audience:</strong>
-People who like "whodunnit" mystery games. Or just puzzles in general.
+The target-audience this is trying to reach is teenagers and young adults interested in shooters.
 </li>
 
 <li><strong>Play Time:</strong>
-How long does your game take to play?<br>
-The game is pretty short, even if you pick all the wrong options. From start to finish, its about 1-2 minutes depending on how fast you can read.
+Each round would take approximately 5-10 minutes, the matches will be continuous and infinite.
 </li>
 
 </ul>
